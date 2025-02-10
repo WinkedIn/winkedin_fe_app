@@ -4,13 +4,15 @@ import config from '../config';
 import LinearGradient from 'react-native-linear-gradient';
 const AppButton = ({buttonStyle, textStyle, text, onPress, disabled}) => {
   return (
+    <View style={{paddingHorizontal: 20}}>
     <TouchableOpacity
       activeOpacity={0.8}
       disabled={disabled}
       onPress={onPress}
-      style={[styles.button, buttonStyle]}>
+      style={[styles.button, buttonStyle, {minWidth: 100}]}>
       <Text style={[styles.text, textStyle]}>{text}</Text>
     </TouchableOpacity>
+    </View>
   );
 };
 
