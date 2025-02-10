@@ -9,4 +9,6 @@ export default {
   pinkColor: '#A042A4',
   blueColor: '#0A66C2',
   borderColor: '#D7D9DA',
+  ProgressBarBg: '#CFD6DE',
+  borderPrimaryColor: '#A6B0B9',
 };

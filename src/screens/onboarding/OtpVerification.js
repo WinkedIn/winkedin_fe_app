@@ -171,7 +171,7 @@ const OtpVerification = ({navigation}) => {
       <AppButton
         text={`Verify`}
         buttonStyle={{marginVertical: 20}}
-        onPress={() => navigation.navigate(config.routes.OTP_VERIFICATION)}
+        onPress={() => navigation.navigate(config.routes.PROFESSIONAL_INFO)}
       />
     </SafeAreaView>
   );
