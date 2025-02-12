@@ -5,8 +5,4 @@ const BASE_API_URL =
   
 export default {
   LOGIN_URL: `${BASE_API_URL}student/login`,
-  
-
-
- 
 };

@@ -3,7 +3,6 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
@@ -12,7 +11,7 @@ import config from '../../config';
 import AppTextInput from '../../components/AppTextInput';
 import AppButton from '../../components/AppButton';
 
-const Register = ({navigation}) => {
+const Register = ({ navigation }: { navigation: any }) => {
   return (
     <SafeAreaView
       style={{
@@ -27,7 +26,7 @@ const Register = ({navigation}) => {
           }}>
           <AppImage
             imageSource={config.ImageList.appLogo}
-            imageStyle={{height: 32, width: 180}}
+            imageStyle={{ height: 32, width: 180 }}
           />
           <Text
             style={{
@@ -54,13 +53,13 @@ const Register = ({navigation}) => {
             inputTextLabel={''}
             inputTextLabelVisible={false}
             placeholder={`john.doe@company.com`}
-            textInputStyle={{flex: 1}}
+            textInputStyle={{ flex: 1 }}
           />
         </View>
       </ScrollView>
       <AppButton
         text={`Continue`}
-        buttonStyle={{marginVertical: 20}}
+        buttonStyle={{ marginVertical: 20 }}
         onPress={() => navigation.navigate(config.routes.OTP_VERIFICATION)}
       />
     </SafeAreaView>

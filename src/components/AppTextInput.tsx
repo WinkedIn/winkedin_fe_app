@@ -1,62 +1,83 @@
-import React, {useState} from 'react';
+import React, { forwardRef } from 'react';
 import {
   View,
   StyleSheet,
   TextInput,
-  Pressable,
   Text,
   TouchableOpacity,
   Image,
-  I18nManager,
+  TextInputProps,
+  ViewStyle,
+  TextStyle,
+  ImageStyle,
+  ImageSourcePropType,
 } from 'react-native';
 import config from '../config';
 
-const AppTextInput = ({
-  containerStyle,
-  inputTextLabel,
-  showVerticalLine,
-  viewStyle,
-  textInputStyle,
-  onChangeText,
-  editable,
-  value,
-  textAlignVertical,
-  autoCapitalize,
-  rightIcon,
-  rightIconStyle,
-  rightIconViewStyle,
-  rightIconPress,
-  leftIcon,
-  leftIconStyle,
-  leftIconPress,
-  onRefs,
-  secureTextEntry,
-  placeholder,
-  keyboardType,
-  inputLabelmarginHorizontal,
-  multiline,
-  numberOfLines,
-  labelStyle,
-  maxLength,
-  inputTextLabelVisible = true,
-  onSubmitEditing,
-  ...props
-}) => {
+type AppTextInputProps = TextInputProps & {
+  containerStyle?: ViewStyle;
+  inputTextLabel?: string;
+  showVerticalLine?: boolean;
+  viewStyle?: ViewStyle;
+  textInputStyle?: TextStyle;
+  rightIcon?: ImageSourcePropType;
+  rightIconStyle?: ImageStyle;
+  rightIconViewStyle?: ViewStyle;
+  rightIconPress?: () => void;
+  leftIcon?: ImageSourcePropType;
+  leftIconStyle?: ImageStyle;
+  leftIconPress?: () => void;
+  onRefs?: (ref: TextInput | null) => void;
+  inputLabelmarginHorizontal?: number;
+  labelStyle?: TextStyle;
+  inputTextLabelVisible?: boolean;
+};
+
+const AppTextInput = forwardRef<TextInput, AppTextInputProps>((
+  {
+    containerStyle,
+    inputTextLabel,
+    showVerticalLine,
+    viewStyle,
+    textInputStyle,
+    onChangeText,
+    editable = true,
+    value,
+    textAlignVertical,
+    autoCapitalize = 'none',
+    rightIcon,
+    rightIconStyle,
+    rightIconViewStyle,
+    rightIconPress,
+    leftIcon,
+    leftIconStyle,
+    leftIconPress,
+    onRefs,
+    secureTextEntry,
+    placeholder,
+    keyboardType,
+    inputLabelmarginHorizontal,
+    multiline = false,
+    numberOfLines,
+    labelStyle,
+    maxLength,
+    inputTextLabelVisible = true,
+    onSubmitEditing,
+    ...props
+  },
+  ref
+) => {
   return (
     <View style={[styles.mainContainer, containerStyle]}>
       {inputTextLabelVisible && (
-        <View style={styles.labelContiner}>
+        <View style={styles.labelContainer}>
           <Text
             style={[
-              {
-                ...styles.labelText,
-                textAlign: 'left',
-                marginHorizontal:
-                  inputLabelmarginHorizontal && inputLabelmarginHorizontal,
-              },
+              styles.labelText,
+              { textAlign: 'left', marginHorizontal: inputLabelmarginHorizontal },
               labelStyle,
             ]}>
-            {inputTextLabel && inputTextLabel}
+            {inputTextLabel}
           </Text>
         </View>
       )}
@@ -67,40 +88,35 @@ const AppTextInput = ({
             onPress={leftIconPress}
             style={{
               borderLeftColor: '#D6D6D6',
-              borderLeftWidth:
-                showVerticalLine && showVerticalLine == true ? 1 : 0,
+              borderLeftWidth: showVerticalLine ? 1 : 0,
             }}>
-            <Image
-              source={leftIcon && leftIcon}
-              style={[styles.leftIconImage, leftIconStyle]}
-            />
+            <Image source={leftIcon} style={[styles.leftIconImage, leftIconStyle]} />
           </TouchableOpacity>
         )}
         <TextInput
           {...props}
+          ref={(inputRef) => {
+            if (onRefs) onRefs(inputRef);
+            if (ref && typeof ref === 'function') ref(inputRef);
+          }}
           placeholder={placeholder}
           secureTextEntry={secureTextEntry}
           style={[styles.textInput, textInputStyle]}
-          ref={inputRef => {
-            onRefs && onRefs(inputRef);
-          }}
-          pointerEvents={editable == false ? 'none' : 'auto'}
+          pointerEvents={!editable ? 'none' : 'auto'}
           autoCorrect={false}
           placeholderTextColor={config.colors.placeHolderColor}
           keyboardType={keyboardType}
-          multiline={multiline ? multiline : false}
+          multiline={multiline}
           numberOfLines={numberOfLines}
           onChangeText={onChangeText}
-          autoCapitalize={'none'}
+          autoCapitalize={autoCapitalize}
           textAlignVertical={textAlignVertical}
           editable={editable}
           value={value}
-          caretHidden={false}
           maxLength={maxLength}
           returnKeyType={'done'}
           onSubmitEditing={onSubmitEditing}
         />
-
         {rightIcon && (
           <TouchableOpacity
             activeOpacity={0.8}
@@ -109,20 +125,16 @@ const AppTextInput = ({
               rightIconViewStyle,
               {
                 borderLeftColor: '#D6D6D6',
-                borderLeftWidth:
-                  showVerticalLine && showVerticalLine == true ? 1 : 0,
+                borderLeftWidth: showVerticalLine ? 1 : 0,
               },
             ]}>
-            <Image
-              source={rightIcon && rightIcon}
-              style={[styles.rightIconImage, rightIconStyle]}
-            />
+            <Image source={rightIcon} style={[styles.rightIconImage, rightIconStyle]} />
           </TouchableOpacity>
         )}
       </View>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   mainContainer: {},
@@ -136,20 +148,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   textInput: {
+    flex: 1,
     height: 48,
     fontSize: 14,
     color: config.colors.black,
     lineHeight: 21,
     fontFamily: config.fonts.LibreFranklinRegularFont,
   },
-  eyeIcon: {
-    height: 40,
-    width: 40,
-    marginRight: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  labelContiner: {
+  labelContainer: {
     marginBottom: 5,
   },
   labelText: {

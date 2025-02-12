@@ -11,7 +11,15 @@ import {
 import React, {useEffect, useRef} from 'react';
 import config from '../config';
 
-const SkeltonLoader = ({
+type SkeltonLoaderProps = {
+  width: number;
+  height: number;
+  variant: 'rectangle' | 'rectangle_multiple' | 'box' | 'circle' | 'circle_multiple';
+  count?: number;
+  direction?: 'row' | 'column';
+};
+
+const SkeltonLoader: React.FC<SkeltonLoaderProps> = ({
   width,
   height,
   variant,

@@ -7,15 +7,15 @@ import AppButton from '../../components/AppButton';
 import ProfesstionalLifeInfo from '../../components/ProfessionalInfo/ProfesstionalLifeInfo';
 import CompanyInputs from '../../components/ProfessionalInfo/CompanyInputs';
 
-const ProfessionalInfo = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const components = [
-    <ProfesstionalLifeInfo key="0" />,
-    <CompanyInputs key="1" />,
+const ProfessionalInfo: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const components: JSX.Element[] = [
+    <ProfesstionalLifeInfo key="0" />, 
+    <CompanyInputs key="1" />
   ];
-  const progressIncrement = 90 / components.length;
+  const progressIncrement: number = 90 / components.length;
 
-  const handleNext = () => {
+  const handleNext = (): void => {
     if (currentIndex < components.length - 1) {
       setCurrentIndex(currentIndex + 1);
     }
@@ -24,7 +24,6 @@ const ProfessionalInfo = () => {
   return (
     <SafeAreaView style={{
         flex: 1,
-        // paddingHorizontal: 20,
         backgroundColor: config.colors.white,
       }}>
         <View style={{
@@ -37,15 +36,15 @@ const ProfessionalInfo = () => {
             width: "100%",
         }}>
 
-          <ProgressBar progress={20 + currentIndex * progressIncrement} />                                               
-          <ScrollView style={{ flex: 1, display: "flex", flexDirection: "column", gap: 24, paddingBottom: 20, scrollbarVisible: false, paddingHorizontal: 20 }}>
+          <ProgressBar progress={20 + currentIndex * progressIncrement} />
+          <ScrollView style={{ flex: 1, display: "flex", flexDirection: "column", gap: 24, paddingBottom: 20, paddingHorizontal: 20 }}>
             {components[currentIndex]}
           </ScrollView>
              
         </View>
         <AppButton
           text={`Next`}
-          buttonStyle={{marginVertical: 20, paddingHorizontal: 20}}
+          buttonStyle={{ marginVertical: 20, paddingHorizontal: 20 }}
           onPress={handleNext}
         />
     </SafeAreaView>

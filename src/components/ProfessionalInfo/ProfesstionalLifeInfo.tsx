@@ -3,7 +3,9 @@ import InputComponent from '../InputComponent';
 import { View, Text } from 'react-native';
 import ProfessionalInfoStyles from '../../styles/ProfesstionalInfoStyles';
 
-const ProfesstionalLifeInfo = () => {
+
+
+const ProfesstionalLifeInfo : React.FC = () => {
   return (
     <>
          <View style={ProfessionalInfoStyles.ProfessionalContainer}>

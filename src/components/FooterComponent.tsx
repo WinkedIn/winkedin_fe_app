@@ -1,8 +1,14 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import config from '../config';
 
-const FooterComponent = ({from, navigation, notification_count}) => {
+type FooterComponentProps = {
+  from: string;
+  navigation: any;
+  notification_count: number;
+};
+
+const FooterComponent: React.FC<FooterComponentProps> = ({ from, navigation, notification_count }) => {
   return (
     <View
       style={{
@@ -20,16 +26,13 @@ const FooterComponent = ({from, navigation, notification_count}) => {
         onPress={() => {
           navigation.navigate(config.routes.HOME_SCREEN);
         }}
-        style={{alignItems: 'center'}}>
+        style={{ alignItems: 'center' }}>
         <Image
           style={{
             width: 20,
             height: 20,
             resizeMode: 'contain',
-            tintColor:
-              from == 'home'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            tintColor: from === 'home' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}
           source={config.ImageList.HomeIcon}
         />
@@ -37,12 +40,9 @@ const FooterComponent = ({from, navigation, notification_count}) => {
           style={{
             fontFamily: config.fonts.PrimaryFont,
             fontSize: 12,
-            color:
-              from == 'home'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            color: from === 'home' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}>
-          {'Home'}
+          Home
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -50,16 +50,13 @@ const FooterComponent = ({from, navigation, notification_count}) => {
         onPress={() => {
           navigation.navigate(config.routes.All_CHAT);
         }}
-        style={{alignItems: 'center'}}>
+        style={{ alignItems: 'center' }}>
         <Image
           style={{
             width: 20,
             height: 20,
             resizeMode: 'contain',
-            tintColor:
-              from == 'chat'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            tintColor: from === 'chat' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}
           source={config.ImageList.ChatIcon}
         />
@@ -67,12 +64,9 @@ const FooterComponent = ({from, navigation, notification_count}) => {
           style={{
             fontFamily: config.fonts.PrimaryFont,
             fontSize: 12,
-            color:
-              from == 'chat'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            color: from === 'chat' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}>
-          {'Chat'}
+          Chat
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
@@ -80,16 +74,13 @@ const FooterComponent = ({from, navigation, notification_count}) => {
         onPress={() => {
           navigation.navigate(config.routes.NOTIFICATION);
         }}
-        style={{alignItems: 'center'}}>
+        style={{ alignItems: 'center' }}>
         <Image
           style={{
             width: 20,
             height: 20,
             resizeMode: 'contain',
-            tintColor:
-              from == 'notification'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            tintColor: from === 'notification' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}
           source={config.ImageList.BellIcon}
         />
@@ -120,12 +111,9 @@ const FooterComponent = ({from, navigation, notification_count}) => {
           style={{
             fontFamily: config.fonts.PrimaryFont,
             fontSize: 12,
-            color:
-              from == 'notification'
-                ? config.colors.skyColor
-                : config.colors.placeHolderColor,
+            color: from === 'notification' ? config.colors.skyColor : config.colors.placeHolderColor,
           }}>
-          {'Notification'}
+          Notification
         </Text>
       </TouchableOpacity>
     </View>

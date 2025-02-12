@@ -12,9 +12,10 @@ import Welcome from '../screens/onboarding/Welcome';
 import Register from '../screens/onboarding/Register';
 import OtpVerification from '../screens/onboarding/OtpVerification';
 import ProfessionalInfo from '../screens/onboarding/ProfessionalInfo';
+import Habit from '../screens/onboarding/Habit';
 const Stack = createNativeStackNavigator();
 
-function RootNavigation() {
+const RootNavigation : React.FC = ()  => {
   return (
     <NavigationContainer ref={navigationRef}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
@@ -38,6 +39,7 @@ function RootNavigation() {
         />
         <Stack.Screen name={config.routes.PROFESSIONAL_INFO} component={ProfessionalInfo} />
         <Stack.Screen name={config.routes.HOME_SCREEN} component={HomeScreen} />
+        <Stack.Screen name={config.routes.HABIT} component={Habit} />
       </Stack.Navigator>
     </NavigationContainer>
   );
