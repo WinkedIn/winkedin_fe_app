@@ -1,7 +1,12 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-// BaseToast styles
+type CustomBaseToastProps = {
+  text1: string;
+  text2?: string;
+  onPress?: () => void;
+};
+
 const HEIGHT = 60;
 const WIDTH = "100%";
 const BORDER_RADIUS = 5;
@@ -42,17 +47,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const CustomBaseToast = ({ text1, text2, onPress }) => {
+const CustomBaseToast: React.FC<CustomBaseToastProps> = ({ text1, text2, onPress }) => {
   return (
     <Pressable onPress={onPress} style={[styles.base, styles.leadingBorder]}>
       <View style={styles.contentContainer}>
         <Text style={styles.text1}>{text1}</Text>
-        <Text style={styles.text2}>{text2}</Text>
+        {text2 && <Text style={styles.text2}>{text2}</Text>}
       </View>
     </Pressable>
   );
 };
 
 export const toastConfig = {
-  error: (props) => <CustomBaseToast {...props} />,
+  error: (props: CustomBaseToastProps) => <CustomBaseToast {...props} />,
 };
+
+export default CustomBaseToast;

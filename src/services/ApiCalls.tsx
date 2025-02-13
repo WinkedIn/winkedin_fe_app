@@ -1,7 +1,7 @@
 import {SagaActions} from '../redux/sagas/SagaActions';
 import ApiUrls from './ApiUrls';
 
-export const ApiCalls = ({apiType}) => {
+export const ApiCalls = ({apiType}:any) => {
   let requestType = '';
   let requestUrl = '';
   switch (apiType) {

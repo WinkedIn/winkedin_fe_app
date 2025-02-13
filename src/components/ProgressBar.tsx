@@ -2,7 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import config from '../config';
 
-const ProgressBar = ({ progress = 0 }) => {
+type ProgressBarProps = {
+  progress?: number;
+};
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ progress = 0 }) => {
   return (
     <View
       style={{

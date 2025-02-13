@@ -5,8 +5,8 @@ import ProfessionalInfoStyles from '../../styles/ProfesstionalInfoStyles';
 import { Button, Searchbar } from 'react-native-paper';
 
 
-const CompanyInputs = () => {
-  const [isFocused, setIsFocused] = React.useState(false);
+const CompanyInputs : React.FC = () => {
+  const [isFocused, setIsFocused] = React.useState<boolean>(false);
 
   return (
     <>
