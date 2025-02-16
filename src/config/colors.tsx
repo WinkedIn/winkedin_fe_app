@@ -11,4 +11,5 @@ export default {
   borderColor: '#D7D9DA',
   ProgressBarBg: '#CFD6DE',
   borderPrimaryColor: '#A6B0B9',
+  redColor: '#DB3030',
 };

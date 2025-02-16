@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import config from '../../config';
 import ProfessionalInfoStyles from '../../styles/ProfesstionalInfoStyles';
 import { Button, Searchbar } from 'react-native-paper';
-
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import {CompanyListItem} from './CompanyListItem';
 
 const CompanyInputs : React.FC = () => {
   const [isFocused, setIsFocused] = React.useState<boolean>(false);
@@ -15,11 +16,25 @@ const CompanyInputs : React.FC = () => {
             <Text style={ProfessionalInfoStyles.ProfessionalSubtitle}>Your privacy matters—share the names and stay incognito!</Text>
         </View>
 
-        <View style={{display: "flex", flexDirection: "column", gap: 10}}>
-            <Searchbar placeholder="Search" style={{backgroundColor: "white", borderColor: isFocused ? config.colors.purpleColor : config.colors.borderPrimaryColor, borderWidth: 1, shadowColor: "#000", shadowOffset: { width: 0, height: 2 }, shadowOpacity: isFocused ? 0.5 : 0, shadowRadius: 3.84, elevation: isFocused ? 5 : 0}} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} />
-
+        <View style={{display: "flex", flexDirection: "column", gap: 10, flex: 1}}>
+            <Searchbar placeholder="Search" style={{ backgroundColor: "white", borderColor: isFocused ? config.colors.purpleColor : config.colors.borderPrimaryColor, borderWidth: 1 }} onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} value={''}/>
+            <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1, gap: 15}}>
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+              <CompanyListItem companyName="Google" />
+            </ScrollView>
             <View style={{flexDirection: "row", justifyContent: "space-between", alignItems: "center", paddingHorizontal: 20}}>
-                <Button style={{color: config.colors.purpleColor, borderRadius: 24, fontSize: 16, fontWeight: "bold", marginLeft: -20}} size="large" icon={config.ImageList.purpleAddIcon}>Add Company </Button>
+                <Button style={{borderRadius: 24 , marginLeft: -20}} labelStyle={{fontSize: 16, fontWeight: "bold"}} icon={config.ImageList.purpleAddIcon} textColor={config.colors.purpleColor}>Add Company </Button>
             </View>
         </View>
     </>
