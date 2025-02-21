@@ -12,6 +12,7 @@ import Welcome from '../screens/onboarding/Welcome';
 import Register from '../screens/onboarding/Register';
 import OtpVerification from '../screens/onboarding/OtpVerification';
 import ProfessionalInfo from '../screens/onboarding/ProfessionalInfo';
+import Habit from '../screens/onboarding/Habit';
 const Stack = createNativeStackNavigator();
 
 function RootNavigation() {
@@ -30,6 +31,7 @@ function RootNavigation() {
         <Stack.Screen name={config.routes.ONBOARDING} component={Onboarding} /> */}
         <Stack.Screen name={config.routes.SPLASH} component={Splash} />
         <Stack.Screen name={config.routes.ONBOARDING} component={Onboarding} />
+        <Stack.Screen name={config.routes.HABIT} component={Habit} />
         <Stack.Screen name={config.routes.WELCOME} component={Welcome} />
         <Stack.Screen name={config.routes.REGISTER} component={Register} />
         <Stack.Screen

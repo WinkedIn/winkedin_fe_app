@@ -6,8 +6,10 @@ import ProgressBar from '../../components/ProgressBar';
 import AppButton from '../../components/AppButton';
 import ProfesstionalLifeInfo from '../../components/ProfessionalInfo/ProfesstionalLifeInfo';
 import CompanyInputs from '../../components/ProfessionalInfo/CompanyInputs';
+import { useNavigation } from '@react-navigation/native';
 
 const ProfessionalInfo = () => {
+  const navigation = useNavigation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const components = [
     <ProfesstionalLifeInfo key="0" />,
@@ -17,9 +19,19 @@ const ProfessionalInfo = () => {
 
   const handleNext = () => {
     if (currentIndex < components.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(prevIndex => {
+        const newIndex = prevIndex + 1;
+        
+        
+        if (newIndex === 1) {
+          navigation.replace(config.routes.HABIT);
+        }
+        
+        return newIndex;
+      });
     }
   };
+  
 
   return (
     <SafeAreaView style={{
