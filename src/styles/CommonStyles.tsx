@@ -52,9 +52,10 @@ export const DropdownStyles = StyleSheet.create({
   arrowIcon: {},
   dropdownMenu: {
     zIndex: 1000,
-    padding: 10,
+    paddingHorizontal: 10,
     width: "100%",
-    height: 200,
+    height: "auto",
+    maxHeight: 200,
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     borderRightWidth: 1,
@@ -65,10 +66,10 @@ export const DropdownStyles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.25,
     shadowRadius: 3.5,
-    elevation: 5,
+    elevation: 2,
   },
   dropdownItem: {
-    backgroundColor: "white",
     padding: 10,
+    borderRadius: 50,
   },
 });

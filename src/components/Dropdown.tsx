@@ -37,8 +37,8 @@ const Dropdown: React.FC<DropdownProps> = ({ options, onSelect }) => {
             {isOpen && (
                 <ScrollView style={CommonStyles.DropdownStyles.dropdownMenu}>
                     {options.map((option, index) => (
-                        <TouchableOpacity key={index} onPress={() => handleSelect(option)} style={CommonStyles.DropdownStyles.dropdownItem}>
-                            <Text>{option}</Text>
+                        <TouchableOpacity  key={index} onPress={() => handleSelect(option)} style={CommonStyles.DropdownStyles.dropdownItem}>
+                            <Text style={{color: config.colors.black}} >{option}</Text>
                         </TouchableOpacity>
                     ))}
                 </ScrollView>

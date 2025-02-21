@@ -12,4 +12,6 @@ export default {
   ProgressBarBg: '#CFD6DE',
   borderPrimaryColor: '#A6B0B9',
   redColor: '#DB3030',
+  lightPink: '#F0E1F0',
+  disabledColor: '#303D4773'
 };

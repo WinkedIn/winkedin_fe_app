@@ -10,17 +10,19 @@ const ProfessionalInfoStyles = StyleSheet.create({
         fontWeight: '700',
         color: config.colors.black,
         lineHeight: 30,
+        marginBottom: 8,
     },
     ProfessionalSubtitle: {
         fontSize: 12,
         color: config.colors.black,
         fontStyle: "italic",
-        lineHeight: 30,
+        // lineHeight: 30,
     },
     ProfessionalInputContainer: {
         display: "flex",
         flexDirection: "column",
-        gap: 16,
+        gap: 20,
+        marginTop: 24,
     }
 })
 

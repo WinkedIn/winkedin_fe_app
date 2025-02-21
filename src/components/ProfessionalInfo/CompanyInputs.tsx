@@ -68,7 +68,7 @@ const CompanyInputs : React.FC = () => {
         <View style={CompanyInputsStyles.SearchBarContainer}>
             <Searchbar placeholder="Search" style={CompanyInputsStyles.SearchBar} onFocus={() => setIsFocused(true)} value={searchQuery} onChangeText={handleSearchChange}/>
             {isFocused && (
-              <SearchList selectedCompanies={selectedCompanies} handleCheckboxClick={handleCheckboxClick} companyList={filteredCompanyList} />
+              <SearchList selectedItems={selectedCompanies} handleCheckboxClick={handleCheckboxClick} List={filteredCompanyList} />
             )}
             <ScrollView style={CompanyInputsStyles.CompanyListContainer} contentContainerStyle={CompanyInputsStyles.CompanyListContainerContent}>
               {companyList.map((company, index) => (
