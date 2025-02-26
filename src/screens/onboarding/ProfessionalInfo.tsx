@@ -12,6 +12,9 @@ import ConfirmationModal from '../../components/ConfirmationModal';
 import MatchDetails  from '../../components/ProfessionalInfo/MatchDetails';
 import PassionDetails from '../../components/ProfessionalInfo/PassionDetails';
 import CharacterDetails from '../../components/ProfessionalInfo/CharacterDetails';
+import Habit from './Habit';
+import AddPrompt from './AddPrompt';
+import PhotoVerify from './PhotoVerify';
 
 const ProfessionalInfo: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -23,6 +26,9 @@ const ProfessionalInfo: React.FC = () => {
     <MatchDetails key="3" />,
     <PassionDetails key="4" isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>,
     <CharacterDetails key="5" isDisabled={isDisabled} setIsDisabled={setIsDisabled}/>,
+    <Habit key="6"/>,
+    <AddPrompt key="7"/>,
+    <PhotoVerify key="8"/>
   ];
   const progressIncrement: number = 90 / components.length;
 

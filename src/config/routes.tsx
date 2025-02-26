@@ -7,4 +7,6 @@ export default {
   OTP_VERIFICATION: 'OTP_VERIFICATION',
   PROFESSIONAL_INFO: 'PROFESSIONAL_INFO',
   HABIT: 'HABIT',
+  Add_Prompt:'ADD_PROMPT',
+  Photo_Verify: 'PHOTO_VERIFY'
 };

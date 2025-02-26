@@ -13,6 +13,8 @@ import Register from '../screens/onboarding/Register';
 import OtpVerification from '../screens/onboarding/OtpVerification';
 import ProfessionalInfo from '../screens/onboarding/ProfessionalInfo';
 import Habit from '../screens/onboarding/Habit';
+import AddPrompt from '../screens/onboarding/AddPrompt';
+import PhotoVerify from '../screens/onboarding/PhotoVerify';
 const Stack = createNativeStackNavigator();
 
 const RootNavigation : React.FC = ()  => {
@@ -39,7 +41,10 @@ const RootNavigation : React.FC = ()  => {
         />
         <Stack.Screen name={config.routes.PROFESSIONAL_INFO} component={ProfessionalInfo} />
         <Stack.Screen name={config.routes.HOME_SCREEN} component={HomeScreen} />
+        
         <Stack.Screen name={config.routes.HABIT} component={Habit} />
+        <Stack.Screen name={config.routes.Add_Prompt} component={AddPrompt} />
+        <Stack.Screen name={config.routes.Photo_Verify} component={PhotoVerify} />
       </Stack.Navigator>
     </NavigationContainer>
   );
