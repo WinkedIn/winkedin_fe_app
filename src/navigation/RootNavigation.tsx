@@ -15,6 +15,9 @@ import ProfessionalInfo from '../screens/onboarding/ProfessionalInfo';
 import Habit from '../screens/onboarding/Habit';
 import AddPrompt from '../screens/onboarding/AddPrompt';
 import PhotoVerify from '../screens/onboarding/PhotoVerify';
+import FaceVerification from '../screens/onboarding/FaceVerification';
+import FaceVerificationNext from '../screens/onboarding/FaceVerificationNext';
+import Success from '../screens/onboarding/Success';
 const Stack = createNativeStackNavigator();
 
 const RootNavigation : React.FC = ()  => {
@@ -45,6 +48,10 @@ const RootNavigation : React.FC = ()  => {
         <Stack.Screen name={config.routes.HABIT} component={Habit} />
         <Stack.Screen name={config.routes.Add_Prompt} component={AddPrompt} />
         <Stack.Screen name={config.routes.Photo_Verify} component={PhotoVerify} />
+        <Stack.Screen name={config.routes.Face_Verification} component={FaceVerification} />
+        <Stack.Screen name={config.routes.Face_Verification_Next} component={FaceVerificationNext} />
+        <Stack.Screen name={config.routes.Success} component={Success} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
