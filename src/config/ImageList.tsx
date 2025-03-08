@@ -8,5 +8,7 @@ const ImageList = {
   linkedInLogo: require('../assets/images/linkedInLogo.png'),
   arrowIcon: require('../assets/images/arrow.png'),
   purpleAddIcon: require('../assets/images/purpleAddIcon.png'),
+  faceverifyImage: require('../assets/images/face_verify.png'),
+  success: require('../assets/images/onboarding_success.png')
 };
 export default ImageList;

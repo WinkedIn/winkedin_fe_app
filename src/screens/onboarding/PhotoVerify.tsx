@@ -65,7 +65,7 @@ const PhotoVerify: React.FC = () => {
 
     const components: JSX.Element[] = [
         <View key="1" style={styles.habitContainer}>
-            <Text style={styles.title}>Let’s see that million-dollar smile!</Text>
+            <Text style={styles.title}>Let's see that million-dollar smile!</Text>
             <Text style={styles.txtSubTitle}>Your best look</Text>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
 

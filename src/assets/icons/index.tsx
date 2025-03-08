@@ -1,3 +1,4 @@
 export const icons = {
-    icnAdd: require('./Add.png')
+    icnAdd: require('./Add.png'),
+    icnCamera: require('./camera.png')
 }
