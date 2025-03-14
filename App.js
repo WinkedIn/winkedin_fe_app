@@ -5,7 +5,7 @@ import AppLoader from './src/components/AppLoader';
 import RootNavigation from './src/navigation/RootNavigation';
 import {AppState, Dimensions, StatusBar, Text, View} from 'react-native';
 import config from './src/config';
-
+import { ModalProvider } from './src/context/ModalContext';
 
 const App = () => {
 
@@ -14,12 +14,13 @@ const App = () => {
 
   return (
     <Provider store={store}>
+      <ModalProvider>
       <StatusBar
         barStyle={'dark-content'}
         backgroundColor={config.colors.white}
       />
       <RootNavigation />
-     
+      </ModalProvider>
     </Provider>
   );
 };

@@ -14,6 +14,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ progress = 0 }) => {
         width: "90%",
         borderRadius: 10,
         backgroundColor: config.colors.ProgressBarBg,
+        marginHorizontal: 20,
       }}
     >
       <View

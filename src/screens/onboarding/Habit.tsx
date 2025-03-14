@@ -4,8 +4,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import config from '../../config';
 import ProgressBar from '../../components/ProgressBar';
 import AppButton from '../../components/AppButton';
+import colors from '../../config/colors';
 
-const Habit: React.FC = () => {
+const Habit: React.FC = ({navigation}:any) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [drinkOption, setDrinkOption] = useState<string | null>(null);
   const [smokeOption, setSmokeOption] = useState<string | null>(null);
@@ -65,76 +66,100 @@ const Habit: React.FC = () => {
   const progressIncrement: number = 90 / components.length;
 
   const handleNext = () => {
-    if (currentIndex < components.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
+    // if (currentIndex < components.length - 1) {
+    //   setCurrentIndex(currentIndex + 1);
+    // }
+    navigation.replace(config.routes.Add_Prompt);
   };
 
   return (
-    <SafeAreaView style={{
-        flex: 1,
-        backgroundColor: config.colors.white,
-      }}>
+    // <SafeAreaView style={{
+    //     flex: 1,
+    //     backgroundColor: config.colors.white,
+    //   }}>
+    <>
         <View style={{
             flex: 1,
             display: "flex",
             flexDirection: "column",
             gap: 40,
-            marginTop: 20,
+            // marginTop: 20,
             alignItems: "center",
-            width: "100%",
+            width: "100%"
         }}>
-          <ProgressBar progress={20 + currentIndex * progressIncrement} />
-          <ScrollView contentContainerStyle={styles.scrollContainer} showsVerticalScrollIndicator={false}> 
+          <ScrollView style={{flex:1,width:'90%'}} showsVerticalScrollIndicator={false}> 
             {components[currentIndex]}
           </ScrollView>
         </View>
+        <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+
+        {/* <TouchableOpacity style={{justifyContent:'center',left:30}}>
+          <Text style={{fontSize:16,color:colors.pinkColor}}>
+            Skip
+          </Text>
+        </TouchableOpacity>
         <AppButton
           text="Next"
-          buttonStyle={{ marginVertical: 20, paddingHorizontal: 20 }}
+          buttonStyle={{ marginVertical: 20, paddingHorizontal: 70 }}
           onPress={handleNext}
-        />
-    </SafeAreaView>
+        /> */}
+        </View>
+        </>
+    // </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   habitContainer: {
-    flex: 1,
+
+    // flex: 1,
+    // backgroundColor:'red',
     flexDirection: "column",
-    marginTop: 20,
-    alignItems: "center",
-    width: '100%',
-    paddingHorizontal: 20,
+    // marginTop: 20,
+    // alignItems: "center",
+    // width: '100%',
+    // paddingHorizontal: 20,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginTop:10,
     marginBottom: 10,
+    alignSelf: "center",
   },
   optionsContainer: {
-    flex: 1,
-    flexDirection: "column",
+    width: '100%', // Ensure full width
     marginTop: 20,
-    alignItems: "center",
-    width: "100%",
   },
   optionButton: {
     borderRadius: 25,
     paddingVertical: 15,
     paddingHorizontal: 20,
     marginBottom: 15,
+    backgroundColor: '#F8F8F8', // Light background
+    width: '100%', // Stretch fully
+    alignItems: 'center',
+    justifyContent: 'center', // Center text
   },
   selectedOption: {
-    backgroundColor: '#ddd',
+    backgroundColor: '#F2E6F7', // Light purple background
+    borderWidth: 2, // Add border
+    borderColor: '#A855F7', // Purple outline
   },
   optionText: {
     fontSize: 16,
+    fontWeight: '500',
+    color: '#333',
+  },
+  selectedOptionText: {
+    fontWeight: 'bold',
+    color: '#000', // Make text bold for selected option
   },
   scrollContainer: {
     flexGrow: 1,
     width: '100%',
   },
 });
+
 
 export default Habit;

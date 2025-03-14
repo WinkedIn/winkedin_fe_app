@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     backgroundColor: config.colors.white,
   },
   contentContainer: {
-    marginTop: 20,
+    marginTop: 20,  
+    paddingHorizontal: 20,
   },
   logo: {
     height: 32,
@@ -90,6 +91,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     marginVertical: 20,
+    paddingHorizontal: 20,
   },
   linkedinButton: {
     flexDirection: 'row',
